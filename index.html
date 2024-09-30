@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            background-color: #0017e4;
+            width: 50%;
+            height: 500px;
+            margin-left: 25%;
+            margin-top: 5%;
+        }
+        #headING{
+            text-align: center;
+        }
+        marquee{
+            color: rgb(229, 255, 0);
+        }
+        #result{
+            text-align: center;
+        }
+        img{
+            margin-left: 40%;
+        }
+        #head, #tail{
+            margin-left: 25%;
+            font-size: 30px;
+            background-color: rgb(255, 0, 0);
+        }
+        .score{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+    
+            
+            padding: 1.5vw;
+            font-size: 20px;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <marquee behavior="" direction="left">created by Mustafa</marquee>
+        <h1 id="headING">TOSS APP</h1>
+        <img width="150px" src="./img/undefined - Imgur.gif" alt="">
+        <h2 id="result">Click Head or Tail to Play!</h2>
+
+        <button onclick="headClick()" id="head">HEAD</button>
+        <button onclick="tailClick()" id="tail">TAIL</button>
+
+        <div class="score">
+            <p id="score">score : 0</p>
+            <p id="count">Attempt : 0</p>
+            <p id="lost">lost : 0</p>
+        </div>
+
+
+
+    </div>
+
+
+
+    <script>
+        var head  = document.querySelector("#head");
+        var tail = document.querySelector("#tail");
+        var score1 = document.querySelector("#score")
+        var count1 = document.querySelector("#count")
+        var lost1 = document.querySelector("#lost")
+        var result = document.querySelector("#result")
+        var img = document.querySelector("img")
+
+
+        score = 0;
+        count = 0;
+        lost = 0;
+
+
+
+        function headClick(){
+           
+            userchoice = 1;
+            compchoice = Math.ceil(Math.random()*2)
+            if (userchoice === compchoice) {
+                
+                 img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST-PtiC-NYMo3H-AEjSp6UvNbL_qfXjK68GQ&s"
+                result.innerHTML = "you win"
+                score++;
+                score1.innerHTML = `score : ${score}`
+                count++;
+                count1.innerHTML = `attempt : ${count}`
+
+                
+            } else {
+                result.innerHTML = "you loss";
+                img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREDHkvxtlR3dK9-_bdve9QVxiKwITtBu_beQ&s"
+                lost++;
+                lost1.innerHTML = `lost : ${lost}`
+                count++;
+                count1.innerHTML = `attempt : ${count}`
+            }
+            
+        }
+
+
+        function tailClick(){
+            userchoice = 2;
+            compchoice = Math.ceil(Math.random()*2)
+            if (userchoice === compchoice) {
+                result.innerHTML = "you win";
+                img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREDHkvxtlR3dK9-_bdve9QVxiKwITtBu_beQ&s"
+                count++;
+                count1.innerHTML = `attempt : ${count}`
+                score++;
+                score1.innerHTML = `score : ${score}`;
+            } else {
+                result.innerHTML = "you loss";
+                 img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST-PtiC-NYMo3H-AEjSp6UvNbL_qfXjK68GQ&s"
+                count++;
+                count1.innerHTML = `attempt : ${count}`
+                lost++
+                lost1.innerHTML = `lost : ${lost}`
+            }
+        }
+        
+         
+    </script>
+</body>
+</html>
